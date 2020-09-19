@@ -14,7 +14,7 @@ newPropertyAddress = "123 NE FLanders St"
 
 @pytest.fixture
 def app():
-    app = create_app()
+    app = create_app('testing')
     return app
 
 @pytest.fixture
@@ -57,11 +57,6 @@ def new_property():
                                , archived=0
                                )
     return newProperty
-
-@pytest.fixture
-def empty_database():
-    if(os.path.isfile("./data.db")):
-        os.remove("./data.db")
 
 @pytest.fixture
 def test_database(app, admin_user, new_user, property_manager_user):

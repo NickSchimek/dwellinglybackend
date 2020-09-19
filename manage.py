@@ -2,8 +2,9 @@ from app import create_app
 from flask_script import Manager, prompt_bool
 from db import db
 from data.seedData import seedData
+import os
 
-app = create_app()
+app = create_app(os.getenv('FLASK_ENV'))
 manager = Manager(app)
 
 """
